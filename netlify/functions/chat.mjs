@@ -1,5 +1,16 @@
+const SUPABASE_URL = "https://shtrygqhuyopbzhamgqv.supabase.co";
+const SUPABASE_KEY = "sb_publishable_srQqAhoV0k4Spc5-LZNOdg_QK9pkI1G";
+
 export default async (req) => {
   if (req.method !== "POST") return Response.json({ error: "Méthode non autorisée" }, { status: 405 });
+
+  // Seuls les élèves connectés peuvent utiliser Parlons IA
+  const jeton = (req.headers.get("authorization") || "").replace("Bearer ", "");
+  if (!jeton) return Response.json({ error: "Connexion requise" }, { status: 401 });
+  const verif = await fetch(SUPABASE_URL + "/auth/v1/user", {
+    headers: { apikey: SUPABASE_KEY, authorization: "Bearer " + jeton },
+  });
+  if (!verif.ok) return Response.json({ error: "Connexion requise" }, { status: 401 });
 
   const cle = Netlify.env.get("ANTHROPIC_API_KEY");
   if (!cle) return Response.json({ error: "Clé API manquante" }, { status: 500 });
