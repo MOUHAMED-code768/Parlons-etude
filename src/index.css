@@ -1,0 +1,175 @@
+
+/* =========================================
+   PARLONS ÉTUDES — CONNEXION PREMIUM
+   ========================================= */
+
+body:has(input[type="email"]) {
+  min-height: 100vh;
+  padding-bottom: 40px;
+  font-family: 'DM Sans', sans-serif;
+  color: #10294a;
+  background:
+    radial-gradient(circle at 0% 0%, #ffffff 0%, transparent 35%),
+    radial-gradient(circle at 100% 5%, #ffe0bd 0%, transparent 32%),
+    linear-gradient(145deg, #e3f6ff, #b8e5ff 65%, #dff3ff);
+}
+
+/* EN-TÊTE */
+
+body:has(input[type="email"]) header {
+  position: relative;
+  top: auto;
+  width: 100%;
+  min-height: 95px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,.85);
+  border-bottom: 1px solid rgba(255,255,255,.8);
+  box-shadow: 0 5px 25px rgba(35,100,150,.06);
+  backdrop-filter: blur(15px);
+}
+
+body:has(input[type="email"]) header h1,
+body:has(input[type="email"]) header .brand {
+  font-family: 'Nunito', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: #0757a4;
+  letter-spacing: -1px;
+}
+
+/* CONTENEUR DE CONNEXION */
+
+body:has(input[type="email"]) main {
+  width: calc(100% - 36px);
+  max-width: 440px;
+  margin: 65px auto 35px;
+  padding: 32px 26px;
+  border-radius: 32px;
+  background: rgba(255,255,255,.94);
+  border: 1px solid rgba(255,255,255,.95);
+  box-shadow: 0 20px 55px rgba(39,105,157,.14);
+}
+
+/* TITRE */
+
+body:has(input[type="email"]) main h1,
+body:has(input[type="email"]) main h2 {
+  margin-bottom: 25px;
+  color: #10294a;
+  font-family: 'Nunito', sans-serif;
+  font-size: 27px;
+  font-weight: 900;
+  text-align: center;
+}
+
+/* FORMULAIRE */
+
+body:has(input[type="email"]) form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+body:has(input[type="email"]) input {
+  width: 100%;
+  min-height: 62px;
+  padding: 17px 19px;
+  margin: 0;
+  border: 2px solid #d9eaf7;
+  border-radius: 19px;
+  background: #fafdff;
+  color: #10294a;
+  font-family: inherit;
+  font-size: 16px;
+  outline: none;
+  transition: .25s ease;
+}
+
+body:has(input[type="email"]) input::placeholder {
+  color: #879bad;
+}
+
+body:has(input[type="email"]) input:focus {
+  background: white;
+  border-color: #299de9;
+  box-shadow: 0 0 0 4px rgba(41,157,233,.12);
+}
+
+/* BOUTONS */
+
+body:has(input[type="email"]) button,
+body:has(input[type="email"]) input[type="submit"] {
+  min-height: 59px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 19px;
+  background: linear-gradient(110deg, #ff8b00, #ff5968);
+  color: #10294a;
+  font-family: 'Nunito', sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 9px 22px rgba(255,105,65,.22);
+  transition: .2s ease;
+}
+
+body:has(input[type="email"]) button:hover,
+body:has(input[type="email"]) input[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 13px 25px rgba(255,105,65,.3);
+}
+
+/* LIENS ET INSCRIPTION */
+
+body:has(input[type="email"]) main a {
+  color: #0875c7;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+body:has(input[type="email"]) main a:hover {
+  color: #e96b21;
+  text-decoration: underline;
+}
+
+body:has(input[type="email"]) main p {
+  margin-top: 18px;
+  color: #687f94;
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  body:has(input[type="email"]) header {
+    min-height: 78px;
+    padding: 14px;
+  }
+
+  body:has(input[type="email"]) header h1,
+  body:has(input[type="email"]) header .brand {
+    font-size: 25px;
+  }
+
+  body:has(input[type="email"]) main {
+    margin: 45px auto 25px;
+    padding: 27px 20px;
+    border-radius: 27px;
+  }
+
+  body:has(input[type="email"]) main h1,
+  body:has(input[type="email"]) main h2 {
+    font-size: 25px;
+  }
+
+  body:has(input[type="email"]) input {
+    min-height: 59px;
+    font-size: 15px;
+  }
+}
