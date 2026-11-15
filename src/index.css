@@ -1,0 +1,473 @@
+
+/* =================================
+   PARLONS ÉTUDES — PREMIUM DESIGN
+================================= */
+
+:root {
+  --blue: #168bea;
+  --blue-dark: #0756a1;
+  --navy: #102b4b;
+  --orange: #ff8500;
+  --coral: #ff5968;
+  --muted: #71869b;
+  --white: #ffffff;
+  --radius: 28px;
+  --shadow: 0 14px 40px rgba(36, 104, 158, .12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--navy);
+  background:
+    radial-gradient(ellipse at 5% 5%, #ffffffa8, transparent 35%),
+    radial-gradient(ellipse at 100% 15%, #ffd4a6a0, transparent 32%),
+    linear-gradient(145deg, #d9f2ff, #b9e4ff 55%, #e7f5ff);
+  background-attachment: fixed;
+  padding-bottom: 120px;
+}
+
+/* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px 22px;
+  background: rgba(255,255,255,.83);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border-bottom: 1px solid rgba(255,255,255,.8);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(19px, 5vw, 27px);
+  font-weight: 900;
+  letter-spacing: -.8px;
+  color: var(--blue-dark);
+}
+
+.brand span {
+  color: #e86a21;
+}
+
+.logo {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #54c7ff, #1689ed);
+  box-shadow: 0 9px 22px #269ce955;
+  font-size: 28px;
+}
+
+.logout {
+  border: none;
+  background: transparent;
+  color: var(--blue-dark);
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* PAGE */
+
+main {
+  width: min(100% - 34px, 760px);
+  margin: 30px auto;
+}
+
+.section {
+  animation: slideIn .35s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(13px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CARTES */
+
+.card {
+  padding: 28px;
+  margin-bottom: 27px;
+  border: 1px solid rgba(255,255,255,.95);
+  border-radius: 32px;
+  background: rgba(255,255,255,.88);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+h2 {
+  margin-bottom: 22px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -.5px;
+}
+
+.section-title {
+  margin: 28px 0 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+/* CHAMPS */
+
+input,
+textarea,
+select {
+  width: 100%;
+  min-height: 68px;
+  padding: 18px 20px;
+  margin-bottom: 15px;
+  border: 2px solid #d9eaf7;
+  border-radius: 23px;
+  outline: none;
+  background: #fff;
+  color: var(--navy);
+  font-family: inherit;
+  font-size: 17px;
+  transition: .25s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8297aa;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #42aaf2;
+  box-shadow: 0 0 0 5px #42aaf21b;
+  transform: translateY(-2px);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* BOUTONS */
+
+.primary-btn,
+.open-btn {
+  border: none;
+  background: linear-gradient(110deg, #ff8b00 0%, #ff7044 52%, #ff5869 100%);
+  color: #142d4b;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 10px 23px rgba(255, 103, 67, .23);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.primary-btn {
+  width: 100%;
+  min-height: 66px;
+  border-radius: 22px;
+  font-size: 20px;
+}
+
+.open-btn {
+  padding: 15px 23px;
+  border-radius: 20px;
+  font-size: 17px;
+}
+
+.primary-btn:hover,
+.open-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 28px rgba(255, 103, 67, .3);
+}
+
+.primary-btn:active,
+.open-btn:active {
+  transform: scale(.97);
+}
+
+/* GROUPES */
+
+.group-card {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,.95);
+  border-radius: 32px;
+  background: rgba(255,255,255,.91);
+  box-shadow: 0 12px 30px rgba(45, 112, 163, .10);
+  transition: .25s ease;
+}
+
+.group-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 35px rgba(45,112,163,.15);
+}
+
+.group-icon {
+  width: 78px;
+  height: 78px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #50c4ff, #1689ed);
+  box-shadow: 0 9px 20px #299ce955;
+  font-size: 33px;
+}
+
+.group-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.group-info h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 23px;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+.group-info p {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* PARLONS IA */
+
+.ai-heading {
+  padding: 25px 10px;
+  text-align: center;
+}
+
+.ai-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 32px;
+  background: linear-gradient(145deg, #50c4ff, #1689ed);
+  box-shadow: 0 12px 28px #299ce955;
+  font-size: 45px;
+}
+
+.ai-heading h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.ai-heading p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin: 20px 0;
+}
+
+.suggestion {
+  padding: 13px 17px;
+  border: 1px solid #d8eaf8;
+  border-radius: 25px;
+  background: #f3faff;
+  color: #245578;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.suggestion:hover {
+  background: #dff2ff;
+  transform: translateY(-2px);
+}
+
+.chat-message {
+  padding: 17px;
+  margin: 13px 0;
+  border-radius: 22px;
+  background: #e9f6ff;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.chat-message.user {
+  margin-left: 25px;
+  background: #fff0e3;
+}
+
+/* NAVIGATION BASSE */
+
+.bottom-nav {
+  position: fixed;
+  z-index: 200;
+  left: 50%;
+  bottom: 17px;
+  transform: translateX(-50%);
+  display: flex;
+  width: min(94%, 700px);
+  padding: 9px;
+  border: 1px solid rgba(255,255,255,.95);
+  border-radius: 38px;
+  background: rgba(255,255,255,.91);
+  box-shadow: 0 12px 40px rgba(32, 90, 139, .19);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.nav-btn {
+  flex: 1;
+  padding: 19px 10px;
+  border: none;
+  border-radius: 30px;
+  background: transparent;
+  color: #698198;
+  font-family: 'Nunito', sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.nav-btn.active {
+  color: #132d4b;
+  background: linear-gradient(110deg, #ff8b00, #ff5968);
+  box-shadow: 0 8px 20px #ff785044;
+}
+
+/* PAGE GROUPE */
+
+.detail-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.back-btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 16px;
+  background: #e8f5ff;
+  color: var(--blue-dark);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.empty {
+  padding: 28px;
+  border-radius: 25px;
+  background: #f1f9ff;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+  header {
+    padding: 14px 16px;
+  }
+
+  .brand {
+    font-size: 21px;
+    gap: 9px;
+  }
+
+  .logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  main {
+    width: calc(100% - 30px);
+    margin: 23px auto;
+  }
+
+  .card {
+    padding: 23px 20px;
+    border-radius: 29px;
+  }
+
+  .group-card {
+    padding: 16px;
+    gap: 12px;
+    border-radius: 29px;
+  }
+
+  .group-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 23px;
+  }
+
+  .group-info h3 {
+    font-size: 20px;
+  }
+
+  .open-btn {
+    padding: 14px 17px;
+    font-size: 15px;
+  }
+
+  .nav-btn {
+    padding: 17px 6px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand {
+    font-size: 18px;
+  }
+
+  .logout {
+    font-size: 13px;
+  }
+
+  .group-card {
+    gap: 9px;
+  }
+
+  .group-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 25px;
+  }
+
+  .open-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
