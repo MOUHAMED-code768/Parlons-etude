@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parlons Études — Inscription</title>
+<style>
+  :root {
+    --bleu-nuit:  #1e2a5a;
+    --bleu-prime: #3b5bfd;
+    --blanc:      #ffffff;
+    --gris-texte: #5c6478;
+    --gris-bord:  #dfe4f0;
+    --vert:       #22c58b;
+    --rouge:      #e5484d;
+    --rayon:      16px;
+    --ombre:      0 20px 60px rgba(30, 42, 90, .15);
+    --transition: .25s ease;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    color: var(--bleu-nuit);
+    background: linear-gradient(135deg, #dfe9ff 0%, #f6f8ff 45%, #ffe9d6 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .header { padding: 20px 6vw; }
+
+  .badge-travaille {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(30, 42, 90, .08);
+    border: 1px solid rgba(30, 42, 90, .12);
+    color: var(--bleu-nuit);
+    font-weight: 600;
+    font-size: .95rem;
+    padding: 10px 22px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .badge-travaille:hover {
+    background: var(--bleu-nuit);
+    color: var(--blanc);
+    transform: translateY(-2px);
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px 80px;
+  }
+
+  .auth-card {
+    width: 100%;
+    max-width: 460px;
+    background: rgba(255, 255, 255, .78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 24px;
+    box-shadow: var(--ombre);
+    padding: 48px 40px;
+    animation: apparition .6s ease both;
+  }
+
+  @keyframes apparition {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .auth-card h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -.5px;
+    margin-bottom: 6px;
+  }
+  .sous-titre {
+    color: var(--gris-texte);
+    font-size: .95rem;
+    margin-bottom: 32px;
+  }
+
+  .champ { margin-bottom: 18px; }
+
+  .champ label {
+    display: block;
+    font-size: .85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .champ input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--bleu-nuit);
+    background: var(--blanc);
+    border: 1.5px solid var(--gris-bord);
+    border-radius: var(--rayon);
+    outline: none;
+    transition: var(--transition);
+  }
+  .champ input::placeholder { color: #9aa3b8; }
+  .champ input:focus {
+    border-color: var(--bleu-prime);
+    box-shadow: 0 0 0 4px rgba(59, 91, 253, .15);
+  }
+  .indice { font-size: .8rem; color: var(--gris-texte); margin-top: 6px; }
+
+  .bouton-principal {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-family: inherit;
+    color: var(--blanc);
+    background: linear-gradient(135deg, var(--bleu-prime), #6a3bfb);
+    border: none;
+    border-radius: var(--rayon);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 8px;
+  }
+  .bouton-principal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(59, 91, 253, .35);
+  }
+  .bouton-principal:active { transform: translateY(0); }
+
+  .lien-connexion {
+    text-align: center;
+    margin-top: 24px;
+    font-size: .95rem;
+    color: var(--gris-texte);
+  }
+  .lien-connexion a {
+    color: var(--bleu-prime);
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 4px;
+  }
+  .lien-connexion a:hover { text-decoration: underline; }
+
+  .message {
+    display: none;
+    font-size: .88rem;
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+  .message.erreur {
+    background: rgba(229, 72, 77, .1);
+    border: 1px solid rgba(229, 72, 77, .3);
+    color: var(--rouge);
+  }
+  .message.succes {
+    background: rgba(34, 197, 139, .1);
+    border: 1px solid rgba(34, 197, 139, .3);
+    color: var(--vert);
+  }
+  .message.visible { display: block; }
+
+  @media (max-width: 480px) {
+    .auth-card { padding: 36px 24px; }
+    .auth-card h1 { font-size: 1.6rem; }
+    .header { padding: 16px 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="header">
+    <button class="badge-travaille">Travaille &rarr;</button>
+  </header>
+
+  <main class="main">
+    <div class="auth-card">
+      <h1>Parlons &Eacute;tudes</h1>
+      <p class="sous-titre">Créer un compte</p>
+
+      <div class="message erreur" id="erreur"></div>
+      <div class="message succes" id="succes"></div>
+
+      <form onsubmit="return sInscrire(event)">
+        <div class="champ">
+          <label for="nom">Nom complet</label>
+          <input type="text" id="nom" placeholder="Ex : Amina Diallo" required>
+        </div>
+
+        <div class="champ">
+          <label for="email">Adresse e-mail</label>
+          <input type="email" id="email" placeholder="exemple@mail.com" required>
+        </div>
+
+        <div class="champ">
+          <label for="mdp">Mot de passe</label>
+          <input type="password" id="mdp" placeholder="6 caractères minimum" minlength="6" required>
+          <p class="indice">6 caractères minimum</p>
+        </div>
+
+        <div class="champ">
+          <label for="mdp2">Confirmer le mot de passe</label>
+          <input type="password" id="mdp2" placeholder="Retape ton mot de passe" required>
+        </div>
+
+        <button type="submit" class="bouton-principal">S'inscrire</button>
+      </form>
+
+      <p class="lien-connexion">Déjà un compte ? <a href="index.html">Me connecter</a></p>
+    </div>
+  </main>
+
+  <script>
+    function sInscrire(event) {
+      event.preventDefault();
+
+      const mdp  = document.getElementById('mdp').value;
+      const mdp2 = document.getElementById('mdp2').value;
+      const erreur  = document.getElementById('erreur');
+      const succes  = document.getElementById('succes');
+
+      erreur.classList.remove('visible');
+      succes.classList.remove('visible');
+
+      // Vérifie que les deux mots de passe correspondent
+      if (mdp !== mdp2) {
+        erreur.textContent = "Les deux mots de passe ne correspondent pas.";
+        erreur.classList.add('visible');
+        return false;
+      }
+
+      // TODO : remplacer par ton vrai appel (Firebase Auth, etc.)
+      succes.textContent = "Inscription simulée réussie ! Redirection...";
+      succes.classList.add('visible');
+
+      setTimeout(() => { window.location.href = 'index.html'; }, 1500);
+      return false;
+    }
+  </script>
+
+</body>
+</html>
