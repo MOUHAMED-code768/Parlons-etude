@@ -1,0 +1,197 @@
+/* ============================================================
+   Parlons Études — Feuille de style principale
+   Style : Moderne & épuré (glassmorphism, dégradés doux)
+   ============================================================ */
+
+/* ---------- 1. Reset & variables ---------- */
+:root {
+  --bleu-nuit:   #1e2a5a;
+  --bleu-prime:  #3b5bfd;
+  --bleu-clair:  #eaf0ff;
+  --blanc:       #ffffff;
+  --gris-texte:  #5c6478;
+  --gris-bord:   #dfe4f0;
+  --vert:        #22c58b;
+  --rouge:       #e5484d;
+  --rayon:       16px;
+  --ombre:       0 20px 60px rgba(30, 42, 90, .15);
+  --transition:  .25s ease;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  color: var(--bleu-nuit);
+  background: linear-gradient(135deg, #dfe9ff 0%, #f6f8ff 45%, #ffe9d6 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- 2. En-tête ---------- */
+.header {
+  padding: 20px 6vw;
+}
+
+.badge-travaille {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(30, 42, 90, .08);
+  border: 1px solid rgba(30, 42, 90, .12);
+  color: var(--bleu-nuit);
+  font-weight: 600;
+  font-size: .padding: 10px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.badge-travaille:hover {
+  background: var(--bleu-nuit);
+  color: var(--blanc);
+  transform: translateY(-2px);
+}
+
+/* ---------- 3. Contenu principal ---------- */
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px 80px;
+}
+
+/* Carte de connexion */
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  background: rgba(255, 255, 255, .75);
+  backdrop-filter: blur(  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, .9);
+  border-radius: 24px;
+  box-shadow: var(--ombre);
+  padding: 48px 40px;
+  animation: apparition .6s ease both;
+}
+
+@keyframes apparition {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Titres */
+.auth-card h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -.5px;
+  margin-bottom: 6px;
+}
+.auth-card .sous-titre {
+  color: var(--gris-texte);
+  font-size: .95rem;
+  margin-bottom: 32px;
+}
+
+/* ---------- 4. Formulaire ---------- */
+.champ {
+  margin-bottom: 18px;
+}
+
+.champ label {
+  display: block;
+  font-size: .85rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--bleu-nuit);
+}
+
+.champ input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--bleu-nuit);
+  background: var(--blanc);
+  border: 1.5px solid var(--gris-bord);
+  border-radius: var(--rayon);
+  outline: none;
+  transition: var(--transition);
+}
+
+.champ input::placeholder { color: #9aa3b8; }
+
+.champ input:focus {
+  border-color: var(--bleu-prime);
+  box-shadow: 0 0 0 4px rgba(59, 91, 253, .15);
+}
+
+.champ .indice {
+  font-size: .8rem;
+  color: var(--gris-texte);
+  margin-top: 6px;
+}
+
+/* ---------- 5. Boutons ---------- */
+.bouton-principal {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--blanc);
+  background: linear-gradient(135deg, var(--bleu-prime), #6a3bfb);
+  border: none;
+  border-radius: var(--rayon);
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 8px;
+}
+
+.bouton-principal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(59, 91, 253, .35);
+}
+.bouton-principal:active { transform: translateY(0); }
+
+/* Ligne "pas de compte" */
+.lien-inscription {
+  text-align: center;
+  margin-top: 24px;
+  font-size: .95rem;
+  color: var(--gris-texte);
+}
+.lien-inscription a {
+  color: var(--bleu-prime);
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 4px;
+}
+.lien-inscription a:hover { text-decoration: underline; }
+
+/* ---------- 6. Messages d'erreur ---------- */
+.message-erreur {
+  display: none;
+  background: rgba(229, 72, 77, .1);
+  border: 1px solid rgba(229, 72, 77, .3);
+  color: var(--rouge);
+  font-size: .88rem;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+.message-erreur.visible { display: block; }
+
+/* ---------- 7. Responsive ---------- */
+@media (max-width: 480px) {
+  .auth-card { padding: 36px 24px; }
+  .auth-card h1 { font-size: 1.6rem; }
+  .header { padding: 16px 20px; }
+}
